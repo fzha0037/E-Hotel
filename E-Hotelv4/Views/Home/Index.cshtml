@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Content/img/Mel.jpg" alt="Melbourne City">
+                <div class="carousel-caption">
+                    <h3>Melbourne City</h3>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/Content/img/BB.png" alt="Brighton Beach">
+                <div class="carousel-caption">
+                    <h3>Brighton Beach</h3>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/Content/img/Chinatown-at-night-1-Large.jpg" alt="Chinatown">
+                <div class="carousel-caption">
+                    <h3>Chinatown</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Start your booking</h2>
+                <p>
+                    Choose your favourite hotel from here.
+                </p>
+                <p><a class="btn btn-default" href="/Reservations/ChooseHotel">Get Started &raquo;</a></p>
+            </div>
+            <div class="col-md-6">
+                <h2>Reservation Management</h2>
+                <p>You can update or cancel your reservations</p>
+                <p><a class="btn btn-default" href="/Reservations/Index">Manage Your Reservations &raquo;</a></p>
+            </div>
+        </div>
+    }
+    <script>
+        $('.carousel').carousel()
+    </script>
+</body>
